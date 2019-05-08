@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Guess</string>
-    <string name="OK">確認</string>
+    <string name="ok">OK</string>
+    <string name="plz_entet_a_number">Plz entet a number(1–10)</string>
+    <string name="you_got_it">you got it</string>
+    <string name="highter">highter</string>
+    <string name="lower">lower</string>
+    <string name="dialog_title_result">Result</string>
+    <string name="title_activity_material">MaterialActivity</string>
+    <string name="Excellent">"Excellent! "</string>
 
 </resources>

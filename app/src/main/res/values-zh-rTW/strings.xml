@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">猜數字</string>
+    <string name="dialog_title_result">結果</string>
+    <string name="ok">確認</string>
+    <string name="plz_entet_a_number">請輸入數字</string>
+    <string name="you_got_it">猜對了</string>
+    <string name="highter">高點</string>
+    <string name="lower">低點</string>
+    <string name="Excellent">"太完美!!! "</string>
+</resources>
