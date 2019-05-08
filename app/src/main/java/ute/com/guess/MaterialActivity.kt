@@ -1,6 +1,7 @@
 package ute.com.guess
 
-import android.content.DialogInterface
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -13,7 +14,7 @@ import kotlinx.android.synthetic.main.content_material.*
 
 class MaterialActivity : AppCompatActivity() {
     val secretNumber = SecretNumber()
-    val TAG: String = MainActivity::class.java.name;
+    val TAG: String = MaterialActivity::class.java.name;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +41,13 @@ class MaterialActivity : AppCompatActivity() {
         }
 
         counter.setText(secretNumber.count.toString())
+
+        val count = getSharedPreferences("guess", Context.MODE_PRIVATE)
+            .getInt("REC_COUNTER", -1)
+        val nick = getSharedPreferences("guess", Context.MODE_PRIVATE)
+            .getString("REC_NICKNAME", null)
+        Log.i(TAG, "data: " + count + "/" + nick);
+
     }
 
     fun check(view: View) {
@@ -64,7 +72,13 @@ class MaterialActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.dialog_title_result))
             .setMessage(message)
-            .setPositiveButton(getString(R.string.ok), null)
+            .setPositiveButton(getString(R.string.ok), { dialog, which ->
+                if (diff == 0) {
+                    val intent = Intent(this, RecordActivity::class.java)
+                    intent.putExtra("COUNTER", secretNumber.count)
+                    startActivity(intent)
+                }
+            })
             .show()
     }
 
